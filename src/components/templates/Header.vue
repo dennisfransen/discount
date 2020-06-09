@@ -19,7 +19,7 @@
       <v-app-bar-nav-icon @click="drawer = !drawer" />
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" absolute temporary right>
+    <v-navigation-drawer app v-model="drawer" temporary right width="100%">
       <v-list>
         <v-list-item-group v-model="item" color="primary">
           <v-list-item v-for="(item, i) in items" :key="i" :to="item.link">
@@ -58,6 +58,7 @@ export default {
       { text: "Home", icon: "mdi-home", link: "/" },
       { text: "Events", icon: "mdi-music-note-eighth", link: "/events" },
       { text: "Discounts", icon: "mdi-tag", link: "/discounts" },
+      { text: "Categories", icon: "mdi-shape", link: "/categories" },
       { text: "Profile", icon: "mdi-account", link: "/profile" },
     ],
   }),

@@ -17,10 +17,10 @@ export default {
     ...mapGetters(["getUser"]),
     isLoggedIn() {
       return this.getUser !== undefined && this.getUser !== null;
-    }
+    },
   },
   components: {
-    Headery
+    Headery,
   },
 };
 </script>
