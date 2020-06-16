@@ -35,36 +35,43 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile,
+    beforeEnter: AuthGuard,
   },
   {
     path: "/events",
     name: "Events",
     component: Events,
+    beforeEnter: AuthGuard,
   },
   {
     path: "/events/:id",
     name: "Event",
     component: Event,
+    beforeEnter: AuthGuard,
   },
   {
     path: "/discounts",
     name: "Discounts",
     component: Discounts,
+    beforeEnter: AuthGuard,
   },
   {
     path: "/discounts/:id",
     name: "Discount",
     component: Discount,
+    beforeEnter: AuthGuard,
   },
   {
     path: "/categories",
     name: "Categories",
     component: Categories,
+    beforeEnter: AuthGuard,
   },
   {
     path: "/categories/:id",
     name: "Category",
     component: Category,
+    beforeEnter: AuthGuard,
   },
 ];
 

@@ -6,7 +6,7 @@
       </v-card-text>
       <v-card-text>
         <v-text-field solo type="email" label="Email" v-model="email" clearable></v-text-field>
-        <v-text-field solo type="password" label="Password" v-model="password" clearable></v-text-field>
+        <v-text-field solo type="password" label="Password" v-model="password" clearable @keyup.enter="onLoginPressed"></v-text-field>
         <router-link class="forgot-password" to="/forgot-password">
           <p class="body-2 text-end">Forgot password?</p>
         </router-link>
