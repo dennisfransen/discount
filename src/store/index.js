@@ -14,6 +14,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     error: null,
+    message: null,
   },
   mutations: {
     setUser(state, user) {
@@ -21,6 +22,9 @@ export default new Vuex.Store({
     },
     setError(state, payload) {
       state.error = payload;
+    },
+    setMessage(state, payload) {
+      state.message = payload;
     },
   },
   actions: {
@@ -67,12 +71,28 @@ export default new Vuex.Store({
     },
     autoLogin({ commit }, user) {
       commit("setUser", user);
-      router.replace("/");
+      // router.replace("/");
+    },
+    sendPasswordReset({ commit }, email) {
+      commit("setError", null);
+      firebase.auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        commit("setMessage", email);
+      }).catch(function(err) {
+        commit("setError", err);
+      });
     },
   },
   getters: {
     getUser: (state) => {
       return state.user;
+    },
+    getError: (state) => {
+      return state.error;
+    },
+    getMessage: (state) => {
+      return state.message;
     },
   },
   modules: {

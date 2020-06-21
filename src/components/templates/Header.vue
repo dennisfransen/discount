@@ -1,8 +1,11 @@
 <template>
   <div id="header">
     <v-app-bar app color="white" flat height="64">
-      <v-btn icon>
+      <v-btn icon v-if="$route.name === 'Home'">
         <v-icon>mdi-bell</v-icon>
+      </v-btn>
+      <v-btn icon v-else @click="$router.go(-1)">
+        <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
 
       <v-spacer></v-spacer>
@@ -31,24 +34,12 @@
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
-        <v-list-item-group>
-          <v-list-item @click="logout">
-            <v-list-item-icon>
-              <v-icon>mdi-logout</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>Logout</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-
 export default {
   name: "Header",
   data: () => ({
@@ -59,15 +50,9 @@ export default {
       { text: "Events", icon: "mdi-music-note-eighth", link: "/events" },
       { text: "Discounts", icon: "mdi-tag", link: "/discounts" },
       { text: "Categories", icon: "mdi-shape", link: "/categories" },
-      { text: "Profile", icon: "mdi-account", link: "/profile" },
+      { text: "Settings", icon: "mdi-cog", link: "/settings" },
     ],
   }),
-  computed: {
-    ...mapGetters(["getUser"]),
-  },
-  methods: {
-    ...mapActions(["logout"]),
-  },
 };
 </script>
 

@@ -13,6 +13,9 @@
       <v-card-actions class="px-4">
         <v-btn block height="48" x-large color="accent" @click="onRegisterPressed">Register</v-btn>
       </v-card-actions>
+       <v-card-actions>
+          <v-btn block text x-large to="/">Back</v-btn>
+      </v-card-actions>
     </v-card>
   </v-container>
 </template>

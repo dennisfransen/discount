@@ -1,16 +1,18 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import AuthGuard from "./authGuard";
-import Home from "@/views/Home";
-import Register from "@/views/Register";
-import Login from "@/views/Login";
-import Profile from "@/views/Profile";
+import Vue from "vue"
+import VueRouter from "vue-router"
+import AuthGuard from "./authGuard"
+import Home from "@/views/Home"
+import Register from "@/views/Register"
+import Login from "@/views/Login"
+import Settings from "@/views/Settings"
 import Events from "@/views/Events"
 import Event from "@/views/Event"
 import Discounts from "@/views/Discounts"
 import Discount from "@/views/Discount"
+import CreateDiscount from "@/views/CreateDiscount"
 import Categories from "@/views/Categories"
 import Category from "@/views/Category"
+import ResetPassword from "@/views/ResetPassword"
 
 Vue.use(VueRouter);
 
@@ -32,9 +34,9 @@ const routes = [
     component: Login,
   },
   {
-    path: "/profile",
-    name: "Profile",
-    component: Profile,
+    path: "/settings",
+    name: "Settings",
+    component: Settings,
     beforeEnter: AuthGuard,
   },
   {
@@ -62,6 +64,12 @@ const routes = [
     beforeEnter: AuthGuard,
   },
   {
+    path: "/create-discount",
+    name: "CreateDiscount",
+    component: CreateDiscount,
+    beforeEnter: AuthGuard,
+  },
+  {
     path: "/categories",
     name: "Categories",
     component: Categories,
@@ -72,6 +80,11 @@ const routes = [
     name: "Category",
     component: Category,
     beforeEnter: AuthGuard,
+  },
+  {
+    path: "/reset-password",
+    name: "ResetPassword",
+    component: ResetPassword,
   },
 ];
 
